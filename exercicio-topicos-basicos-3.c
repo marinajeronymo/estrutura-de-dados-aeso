@@ -9,7 +9,7 @@ b) Calcular e mostrar a quantos metros de distância o projétil atingirá o ch�
 
 int main(int argc, char const *argv[])
 {
-    float alturaInic, velocidadeInic, angulo, gravidade, distanciaFinal;
+    float alturaInic, velocidadeInic, angulo, gravidade, distanciaFinal,tempo,delta;
 
     printf("Escreva a altura de lançamento: ");
 
@@ -24,7 +24,8 @@ int main(int argc, char const *argv[])
     scanf("%f",&angulo);
 
     gravidade = 9.81;
-    distanciaFinal = 0; //formula desconhecida
+    delta = pow(velocidadeInic,2)*pow(sin(angulo),2)+2*gravidade*alturaInic;
+    distanciaFinal = ((velocidadeInic*cos(angulo))*(velocidadeInic*sin(angulo)*sqrt(delta)))/gravidade;
 
     printf("\nO projétil atingirá o chão a %.2f metros",distanciaFinal);
 
